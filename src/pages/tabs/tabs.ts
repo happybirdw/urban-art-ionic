@@ -3,9 +3,11 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
+import { WorksPage } from '../works/works';
 
 @Component({
-  templateUrl: 'tabs.html'
+  templateUrl: 'tabs.html',
+
 })
 export class TabsPage {
   // this tells the tabs component which Pages
@@ -13,7 +15,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = AboutPage;
   tab3Root: any = ContactPage;
-
+  tab4Root: any = WorksPage;
   constructor() {
 
   }
