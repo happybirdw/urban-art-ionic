@@ -1,22 +1,26 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import {Map} from '../components/map/map';
+
+import { AroundPage } from '../pages/around/around';
 import { WorksPage } from '../pages/works/works';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { FavoritePage } from '../pages/favorite/favorite';
+import { AddPage } from '../pages/add/add';
 import { TabsPage } from '../pages/tabs/tabs';
+
 import { Endpoints } from '../providers/endpoints';
 import { WorksService } from '../providers/works.service';
 
 @NgModule({
   declarations: [
     MyApp,
+    AroundPage,
     WorksPage,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    FavoritePage,
+    AddPage,
+    TabsPage,
+    Map
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,10 +28,10 @@ import { WorksService } from '../providers/works.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    AroundPage,
     WorksPage,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    FavoritePage,
+    AddPage,
     TabsPage
   ],
   providers: [
