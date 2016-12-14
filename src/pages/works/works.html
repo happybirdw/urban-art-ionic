@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>works</ion-title>
+    <ion-title>Works</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,10 +17,11 @@
   <ion-list>
     <ion-item  *ngFor="let item of items" (click)="selectItem(item._id)">
       <ion-avatar item-left>
-        <img src="{{item.photo}}">
+        <img src="assets/images/works/{{item.photos[0]}}">
       </ion-avatar>
       <h2>{{item.title}}</h2>
       <p>{{item.description}}</p>
+      <p>{{item.address}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

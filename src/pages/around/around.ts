@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Map} from '../../components/map/map';
 
+
 /*
   Generated class for the Around page.
 

@@ -15,7 +15,7 @@ import {WorksService} from '../../providers/works.service';
 })
 export class WorksPage {
 
-  items:any = []
+  items: any = []
   constructor(public navCtrl: NavController, private worksService: WorksService) {
       this.worksService.load().then((data)=>{
         this.items = data;
