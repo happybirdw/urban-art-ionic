@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { Routes } from './app.routes';
 
 import { WorksService } from '../providers/works.service';
 
@@ -11,7 +11,7 @@ import { WorksService } from '../providers/works.service';
   providers: [WorksService],
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage: any;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -20,5 +20,9 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+  }
+
+  ngOnInit() {
+    this.rootPage = Routes.getRootPage(true); // false in when auth is defined
   }
 }

@@ -1,39 +1,33 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import {Map} from '../components/map/map';
-
-import { AroundPage } from '../pages/around/around';
-import { WorksPage } from '../pages/works/works';
-import { FavoritePage } from '../pages/favorite/favorite';
-import { AddPage } from '../pages/add/add';
-import { TabsPage } from '../pages/tabs/tabs';
+import { Map } from '../components/map/map';
+import { Routes } from './app.routes';
 
 import { Endpoints } from '../providers/endpoints';
 import { WorksService } from '../providers/works.service';
 
+const app: Array<any> = [MyApp];
+const pages: Array<any> = Routes.getPages();
+const components: Array<any> = [
+  Map
+];
+const appIonicConfig = {
+  mode: 'md',
+  platforms: {
+    ios: {
+      tabsPlacement: 'top',
+    }
+  }
+};
+
 @NgModule({
-  declarations: [
-    MyApp,
-    AroundPage,
-    WorksPage,
-    FavoritePage,
-    AddPage,
-    TabsPage,
-    Map
-  ],
+  declarations: app.concat(pages).concat(components),
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, appIonicConfig, Routes.getDeepLinkerConfig())
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AroundPage,
-    WorksPage,
-    FavoritePage,
-    AddPage,
-    TabsPage
-  ],
+  entryComponents: app.concat(pages),
   providers: [
     {
       provide: ErrorHandler, 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import {WorksService} from '../../providers/works.service';
+import { WorksService } from '../../providers/works.service';
+import { Routes} from '../..app/app.routes';
 
 /*
   Generated class for the Works page.
@@ -15,8 +16,10 @@ import {WorksService} from '../../providers/works.service';
 })
 export class WorksPage {
 
+  imagesPath: string;
   items: any = []
   constructor(public navCtrl: NavController, private worksService: WorksService) {
+      this.imagesPath = this.worksService.getImagesPath();
       this.worksService.load().then((data)=>{
         this.items = data;
       })    
@@ -26,4 +29,8 @@ export class WorksPage {
     console.log('Hello WorksPage Page');
   }
 
+/*  selectItem(id) {
+    this.navCtrl.push(Routes.getPage(Routes.WORK),{id:id})
+  }
+*/
 }

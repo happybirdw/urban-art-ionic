@@ -12,7 +12,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WorksService {
   data: any;
-
+  imagesPath: string = "assets/images/works/";
+  
   constructor(public http: Http, private endpoints: Endpoints) {
     console.log('Hello Works Provider');
   }
@@ -31,5 +32,8 @@ export class WorksService {
           resolve(this.data);
         });
     });
+  }
+  getImagesPath() {
+    return this.imagesPath;
   }
 }
