@@ -18,5 +18,8 @@ export class Endpoints {
       return this.API_PATH + "/works"
   }
 
+  postWork(){
+      return this.API_PATH + "/works"
+  }
 }
   

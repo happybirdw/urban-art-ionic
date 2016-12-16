@@ -13,6 +13,8 @@ import { NavController } from 'ionic-angular';
 })
 export class WorkPage {
 
+  
+
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {

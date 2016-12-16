@@ -33,6 +33,12 @@ export class WorksService {
         });
     });
   }
+
+  post(data) {
+
+  }
+
+  
   getImagesPath() {
     return this.imagesPath;
   }
