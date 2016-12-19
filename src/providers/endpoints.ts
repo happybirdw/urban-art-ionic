@@ -21,5 +21,12 @@ export class Endpoints {
   postWork(){
       return this.API_PATH + "/works"
   }
+  getCategories(){
+      return this.API_PATH + "/categories"
+  }
+
+/*  postCategory(){
+      return this.API_PATH + "/category"
+  }*/
 }
   

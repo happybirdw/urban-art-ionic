@@ -22,7 +22,7 @@
 
 
   <ion-grid>
-  <ion-row *ngFor="let item of items"> <!--(click)="selectItem(item._id)-->
+  <ion-row *ngFor="#item of items"> <!--(click)="selectItem(item._id)-->
     <ion-col width-50> <!-- *ngIf="{{i}} % 2 == 0"-->
       <ion-card>
         <img src="{{imagesPath + item.photos[0]}}"/>

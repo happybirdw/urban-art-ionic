@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>add</ion-title>
+    <header-content title="Add"></header-content>
   </ion-navbar>
 
 </ion-header>
@@ -38,7 +38,10 @@
 
     <ion-item>
       <ion-label stacked>Category</ion-label>
-      <ion-select [(ngModel)]="idCat">
+      <ion-select [(ngModel)]="container.idCat">
+        <ion-option *ngFor="#cat of categories" value="{{cat.catName}}" [checked]="cat == container.idCat">
+          {{categories[cat]}}
+        </ion-option>
         <ion-option value="graf" selected="true">Graffiti</ion-option>
         <ion-option value="scrup">Scrupture</ion-option>
       </ion-select>

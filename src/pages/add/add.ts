@@ -5,6 +5,7 @@ import {Geolocation} from 'ionic-native';
 
 import { Work } from '../../classes/work'
 import { WorksService } from '../../providers/works.service';
+import { CategoriesService } from '../../providers/categories.service';
 
 declare var google: any;
 declare var navigator: any;
@@ -21,9 +22,14 @@ declare var navigator: any;
 export class AddPage {
 
   container: Work;
-  constructor(public navCtrl: NavController, private workService: WorksService) {
+  categories: any
+
+  constructor(public navCtrl: NavController, private workService: WorksService, private categoriesService: CategoriesService) {
     this.container = new Work();
     console.log("this.container:",this.container);
+    this.categoriesService.load().then((data)=>{
+      this.categories = data;
+      })  
   }
 
   ionViewDidLoad() {

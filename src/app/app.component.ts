@@ -5,10 +5,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Routes } from './app.routes';
 
 import { WorksService } from '../providers/works.service';
+import { CategoriesService } from '../providers/categories.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [WorksService],
+  providers: [WorksService, CategoriesService],
 })
 export class MyApp {
   rootPage: any;
