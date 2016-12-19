@@ -23,12 +23,12 @@
 
     <ion-item>
       <ion-label stacked>Description</ion-label>
-      <ion-input type="text" [(ngModel)]="description"></ion-input>
+      <ion-input type="text" [(ngModel)]="container.description"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Date</ion-label>
-      <ion-input type="date" placeholder="date" [(ngModel)]="container.date"></ion-input>
+      <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="container.datePosted"></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -53,18 +53,15 @@
       </ion-select>
     </ion-item>    
 
-    <button ion-button icon-left color="dark" round outline (click)="getPicture()">
+    <button ion-button icon-left color="dark" round outline right (click)="getPicture()">
       <ion-icon name='camera' is-active="false"></ion-icon>
       <span>Take picture</span>
     </button>
 
-    <button ion-button icon-left color="dark" round outline (click)="save()">
-      <ion-icon name='add' is-active="false"></ion-icon>
-      <span>Save work</span>
-    </button>
-
-    <ion-fab>
-      <button ion-fab color="primary">Save</button>
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="save()">
+        <ion-icon name="add"></ion-icon>
+      </button>
     </ion-fab>
 
     <ion-card>

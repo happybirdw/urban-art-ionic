@@ -35,11 +35,24 @@ export class WorksService {
   }
 
   post(data) {
-
+    return new Promise((resolve, reject) => {
+      this.http.post(this.endpoints.postWork(), data)
+        .map(res => res.json())
+        .subscribe(err => {
+           console.log(err);
+           if(err){
+              reject(err);
+           }else{
+              resolve()
+           }
+          
+        });
+    });
   }
 
   
   getImagesPath() {
     return this.imagesPath;
+    /*return "";*/
   }
 }

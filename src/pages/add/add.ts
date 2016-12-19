@@ -4,6 +4,7 @@ import {Camera} from 'ionic-native';
 import {Geolocation} from 'ionic-native';
 
 import { Work } from '../../classes/work'
+import { WorksService } from '../../providers/works.service';
 
 declare var google: any;
 declare var navigator: any;
@@ -19,32 +20,22 @@ declare var navigator: any;
 })
 export class AddPage {
 
-  container = {
-      photos : [],
-      title : "",
-      date : null,
-      address : "",
-      pos : [],
-      description : "",
-      idCat : "",
-      artists : []
-  }
-
-  constructor(public navCtrl: NavController) {
-
+  container: Work;
+  constructor(public navCtrl: NavController, private workService: WorksService) {
+    this.container = new Work();
+    console.log("this.container:",this.container);
   }
 
   ionViewDidLoad() {
     console.log('Hello AddPage Page');
-    this.container.date = new Date();
     this.getPosition();    
   }
 
   getPicture(){
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
-      targetWidth: 1500,
-      targetHeight: 1500
+      targetWidth: 500,
+      targetHeight: 500
     }).then((imageData) => {
       this.container.photos.push("data:image/jpeg;base64," + imageData);
 
@@ -77,9 +68,12 @@ export class AddPage {
   }
 
   save() {
-     this.container.date = new Date();
-
-     const work = new Work(this.container);
+     this.container.datePosted = new Date();
+     this.workService.post(this.container).then(()=>{
+       console.log("success")
+     }, ()=>{
+       console.log("save error")
+     });
   }
 
 }
