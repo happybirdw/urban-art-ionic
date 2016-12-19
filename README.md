@@ -24,7 +24,7 @@ A Genève, en levant les yeux, on remarque vite qu'on est au coeur du Street-Art
 A Preview by step series of images that tell you what the step will be
 
 * Maquette - The Mobile App Maquette designed for
-![alt text](https://github.com/happybirdw/streetart/blob/master/images/maquette-streetart.png "Maquette Street Art")
+![alt text](https://github.com/happybirdw/urban-art-ionic/src/assets/images/diagrams/maquette-streetart.png "Maquette Street Art")
 
 ## Architecture Logique
 
@@ -44,12 +44,12 @@ Google Map
 ## Use Case
 
 * [Use Case](https://www.draw.io/#Dusecase-streetart.html) - The Mobile App Use Case designed for
-![alt text](https://github.com/happybirdw/streetart/blob/master/images/usecase-streetart.png "Use Case Street Art")
+![alt text](https://github.com/happybirdw/urban-art-ionic/src/assets/images/diagrams/usecase-streetart.png "Use Case Street Art")
 
 ## Mocule de Class
 
 * [UML diagram](https://www.draw.io/#Duml-streetart.html) - The UML diagram designed for
-![alt text](https://github.com/happybirdw/streetart/blob/master/images/diagramClass-streetart.png "Diagram Class Street Art")
+![alt text](https://github.com/happybirdw/urban-art-ionic/src/assets/images/diagrams/diagramClass-streetart.png "Diagram Class Street Art")
 
 ## BDD (modèle) (Mongo)
 
