@@ -6,6 +6,7 @@ import { Geolocation } from 'ionic-native';
 import { Work } from '../../classes/work'
 import { WorksService } from '../../providers/works.service';
 import { CategoriesService } from '../../providers/categories.service';
+import { ArtistsService } from '../../providers/artists.service';
 
 declare var google: any;
 declare var navigator: any;
@@ -23,21 +24,30 @@ export class AddPage {
 
   container: Work;
   categories: any;
-  index: number = 0;
-  public base64Image: string;
-  
+  artists: any;
+  index: number = 0; // index for saving pictures as imageName
+  public base64Image: string; // to display in add.html
+
   image64test = "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACAAIADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAUH/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AvgDJFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/9k=";
 
 
   constructor(public navCtrl: NavController,
-    private workService: WorksService,
-    private categoriesService: CategoriesService) {
+              private workService: WorksService,
+              private categoriesService: CategoriesService,
+              private ArtistsService: ArtistsService) 
+  {
     this.container = new Work();
     console.log("this.container:", this.container);
     this.categoriesService.load().then((data) => {
       this.categories = data;
     })
-    this.uploadImage(this.image64test);
+    this.ArtistsService.load().then((data) => {
+      this.artists = data;
+    })
+      /* Test load image for Navigator */
+      //this.base64Image = "data:image/jpeg;base64," + this.image64test;
+      this.uploadImage(this.image64test);
+      
   }
 
   ionViewDidLoad() {
@@ -51,8 +61,11 @@ export class AddPage {
       targetWidth: 500,
       targetHeight: 500
     }).then((imageData) => {
-      this.base64Image = "data:image/jpeg;base64," + imageData;
-      this.uploadImage(imageData);
+      /* code need to use smartphone camera 
+      this.base64Image = "data:image/jpeg;base64," + imageData; // image to display in works.html
+      this.uploadImage(imageData); // image save in server
+      */
+
     }, (error) => {
       console.log("error ", error)
     });

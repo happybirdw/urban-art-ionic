@@ -1,12 +1,14 @@
 export class Work {
-/*    photos: String[];
+/*    
+    photos: String[];
     title : String;
     datePosted: Date;
     address: String;
     pos : Number[];  // [<longitude>, <latitude>]
     description: String;
     idCat: Number;
-    artists: String[];*/
+    artists: String[];
+*/
 
     _id: Number = (new Date()).getTime(); // Timestamp : 1482223934345
     photos : Number[] = []; /* [1,2,3] ----> "assets/images/works/1482223934345-1.jpg" */

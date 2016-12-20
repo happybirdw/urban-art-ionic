@@ -68,7 +68,7 @@ export class Map {
       var work = this.items[i];
       var image = {
         
-        url: this.worksService.getImagesPath() + work.photos[0],
+        url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
         // This marker is 20 pixels wide by 20 pixels high.
         size: new google.maps.Size(20, 20),
         // The origin for this image is (0, 0).

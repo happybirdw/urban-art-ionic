@@ -6,10 +6,11 @@ import { Routes } from './app.routes';
 
 import { WorksService } from '../providers/works.service';
 import { CategoriesService } from '../providers/categories.service';
+import { ArtistsService } from '../providers/artists.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [WorksService, CategoriesService],
+  providers: [WorksService, CategoriesService, ArtistsService],
 })
 export class MyApp {
   rootPage: any;

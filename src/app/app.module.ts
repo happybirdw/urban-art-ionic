@@ -6,7 +6,6 @@ import { HeaderContentComponent } from '../components/header-content/header-cont
 import { Routes } from './app.routes';
 
 import { Endpoints } from '../providers/endpoints';
-import { WorksService } from '../providers/works.service';
 
 const app: Array<any> = [MyApp];
 const pages: Array<any> = Routes.getPages();
@@ -35,8 +34,7 @@ const appIonicConfig = {
       provide: ErrorHandler, 
       useClass: IonicErrorHandler
     }, 
-    Endpoints,
-    WorksService
+    Endpoints
     ],
 })
 export class AppModule {}

@@ -12,7 +12,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WorksService {
   data: any;
-  imagesPath: string = "assets/images/works/";
+
+  imagesPath: string = "http://localhost:8000/";
+  //imagesPath: string = "assets/images/works/";
 
   constructor(public http: Http, private endpoints: Endpoints) {
     console.log('Hello Works Provider');

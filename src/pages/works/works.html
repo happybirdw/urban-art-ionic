@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-    <header-content title="Works"></header-content>
+  <header-content title="Works"></header-content>
 
 </ion-header>
 
 
 <ion-content class="card-background-page">
   <ion-card *ngFor="let item of items" (click)="selectItem(item._id)">
-    <img src="{{imagesPath + item.photos[0]}}" />
+    <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
     <div class="card-title">{{item.title}}</div>
     <div class="card-subtitle">{{item.description}}</div>
   </ion-card>
@@ -26,14 +26,18 @@
       <ion-col width-50>
         <!-- *ngIf="{{i}} % 2 == 0"-->
         <ion-card>
-          <img src="{{imagesPath + item.photos[0]}}" />
+          <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
           <div class="card-title">{{item.title}}</div>
           <div class="card-subtitle">{{item.description}}</div>
         </ion-card>
       </ion-col>
 
       <ion-col width-50>
-        <img src="{{imagesPath + item.photos[0]}}">
+        <ion-card>
+          <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}">
+          <div class="card-title">{{item.title}}</div>
+          <div class="card-subtitle">{{item.description}}</div>
+        </ion-card>
       </ion-col>
 
     </ion-row>
