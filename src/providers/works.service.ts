@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import {Endpoints} from './endpoints'
+import { Endpoints } from './endpoints'
 import 'rxjs/add/operator/map';
 
 /*
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 export class WorksService {
   data: any;
   imagesPath: string = "assets/images/works/";
-  
+
   constructor(public http: Http, private endpoints: Endpoints) {
     console.log('Hello Works Provider');
   }
@@ -39,20 +39,37 @@ export class WorksService {
       this.http.post(this.endpoints.postWork(), data)
         .map(res => res.json())
         .subscribe(err => {
-           console.log(err);
-           if(err){
-              reject(err);
-           }else{
-              resolve()
-           }
-          
+          console.log(err);
+          if (err) {
+            reject(err);
+          } else {
+            resolve()
+          }
+
         });
     });
   }
 
-  
+
   getImagesPath() {
     return this.imagesPath;
     /*return "";*/
   }
+
+  uploadImage(imgData, imgName) {
+    return new Promise((resolve, reject) => {
+      console.log("Works service - uploadImage() to " + this.endpoints.postImage())
+      this.http.post(this.endpoints.postImage(), { imgData: imgData, imgName: imgName })
+        //.map(res => res.json())
+        .subscribe(err => {
+          console.log(err);
+          if (err) {
+            reject(err);
+          } else {
+            resolve()
+          }
+        });
+    });
+  }
+
 }

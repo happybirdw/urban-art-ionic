@@ -34,32 +34,37 @@
     <ion-item>
       <ion-label stacked>Address</ion-label>
       <ion-input type="text" [(ngModel)]="container.address"></ion-input>
-    </ion-item>    
+    </ion-item>
 
     <ion-item>
       <ion-label stacked>Category</ion-label>
       <ion-select [(ngModel)]="container.idCat">
-        <ion-option *ngFor="#cat of categories" value="{{cat.catName}}" [checked]="cat == container.idCat">
-          {{categories[cat]}}
+        <ion-option *ngFor="let cat of categories" value="{{cat.catName}}" selected="{{cat == container.idCat}}">
+          {{cat.catName}}
         </ion-option>
-        <ion-option value="graf" selected="true">Graffiti</ion-option>
-        <ion-option value="scrup">Scrupture</ion-option>
       </ion-select>
-    </ion-item>    
+    </ion-item>
 
     <ion-item>
       <ion-label stacked>Artist</ion-label>
       <!--<ion-select *ngFor="let artist of container.artists">-->
-        <ion-select [(ngModel)]="container.artists">
+      <ion-select [(ngModel)]="container.artists" multiple="true">
+        <ion-option *ngFor="let artist of artists" value="{{artist.name}}">
+          {{artist.name}}
+        </ion-option>
         <ion-option value="0" selected="true">Unknown</ion-option>
         <ion-option value="zaji">Zaji</ion-option>
       </ion-select>
-    </ion-item>    
+    </ion-item>
 
     <button ion-button icon-left color="dark" round outline right (click)="getPicture()">
       <ion-icon name='camera' is-active="false"></ion-icon>
       <span>Take picture</span>
     </button>
+
+    <ion-card>
+      <img [src]="base64Image" *ngIf="base64Image" />
+    </ion-card>
 
     <ion-fab right bottom>
       <button ion-fab color="primary" (click)="save()">
@@ -67,9 +72,6 @@
       </button>
     </ion-fab>
 
-    <ion-card>
-     <img [src]="photos" *ngIf="photos" />
-   </ion-card>
 
   </ion-list>
 </ion-content>

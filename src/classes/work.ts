@@ -7,15 +7,16 @@ export class Work {
     description: String;
     idCat: Number;
     artists: String[];*/
-    
-    photos = ["data:image/jpeg;base64"];
-    title = "What else";
-    datePosted = new Date();
-    address = "La jonction, Genève";
-    pos = [];  // [<longitude>, <latitude>]
-    description = "Nice Graffiti";
-    idCat = 1;
-    artists = ["srdtfghfd"];
+
+    _id: Number = (new Date()).getTime(); // Timestamp : 1482223934345
+    photos : Number[] = []; /* [1,2,3] ----> "assets/images/works/1482223934345-1.jpg" */
+    title : String = "What else 2";
+    datePosted : Date = new Date();
+    address : String = "La jonction, Genève";
+    pos: Number[] = [];  // [<longitude>, <latitude>]
+    description: String  = "Nice Graffiti";
+    idCat: String;
+    artists: String[] = [];
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

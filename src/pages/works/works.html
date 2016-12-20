@@ -6,39 +6,44 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Works</ion-title>
-  </ion-navbar>
+    <header-content title="Works"></header-content>
 
 </ion-header>
 
 
 <ion-content class="card-background-page">
   <ion-card *ngFor="let item of items" (click)="selectItem(item._id)">
-    <img src="{{imagesPath + item.photos[0]}}"/>
+    <img src="{{imagesPath + item.photos[0]}}" />
     <div class="card-title">{{item.title}}</div>
     <div class="card-subtitle">{{item.description}}</div>
   </ion-card>
 
 
   <ion-grid>
-  <ion-row *ngFor="#item of items"> <!--(click)="selectItem(item._id)-->
-    <ion-col width-50> <!-- *ngIf="{{i}} % 2 == 0"-->
-      <ion-card>
-        <img src="{{imagesPath + item.photos[0]}}"/>
-        <div class="card-title">{{item.title}}</div>
-        <div class="card-subtitle">{{item.description}}</div>
-      </ion-card>
-    </ion-col>
-    <ion-col width-50>
-      <img src="{{imagesPath + item.photos[0]}}">
-    </ion-col>
-  </ion-row>
-</ion-grid>
-  <ion-list>
-    <ion-item  *ngFor="let item of items" (click)="selectItem(item._id)">
-      <ion-avatar item-left>
+    <ion-row *ngFor="let item of items">
+      <!--; #i = index (click)="selectItem(item._id)-->
+
+      <ion-col width-50>
+        <!-- *ngIf="{{i}} % 2 == 0"-->
+        <ion-card>
+          <img src="{{imagesPath + item.photos[0]}}" />
+          <div class="card-title">{{item.title}}</div>
+          <div class="card-subtitle">{{item.description}}</div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col width-50>
         <img src="{{imagesPath + item.photos[0]}}">
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="selectItem(item._id)">
+      <ion-avatar item-left>
+        <img src="{{imagesPath + item._id + '-' +item.photos[0] + '.jpeg'}}">
       </ion-avatar>
       <h2>{{item.title}}</h2>
       <p>{{item.description}}</p>
