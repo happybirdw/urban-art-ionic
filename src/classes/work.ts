@@ -12,12 +12,12 @@ export class Work {
 
     _id: Number = (new Date()).getTime(); // Timestamp : 1482223934345
     photos : Number[] = []; /* [1,2,3] ----> "assets/images/works/1482223934345-1.jpg" */
-    title : String = "What else 2";
+    title : String = "";
     datePosted : Date = new Date();
-    address : String = "La jonction, Genève";
+    address : String = "";
     pos: Number[] = [];  // [<longitude>, <latitude>]
-    description: String  = "Nice Graffiti";
-    idCat: String;
+    description: String  = "";
+    idCat: String = "";
     artists: String[] = [];
 
   constructor(values: Object = {}) {

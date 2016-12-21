@@ -18,14 +18,15 @@
 
     <ion-item>
       <ion-label stacked>Titre</ion-label>
-      <ion-input type="text" [(ngModel)]="container.title"></ion-input>
+      <ion-input type="text" placeholder="New art work" [(ngModel)]="container.title"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Description</ion-label>
-      <ion-input type="text" [(ngModel)]="container.description"></ion-input>
+      <ion-input type="text" placeholder="About the work" [(ngModel)]="container.description"></ion-input>
     </ion-item>
 
+<!-- 
     <ion-item>
       <ion-label stacked>Date</ion-label>
       <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="container.datePosted"></ion-datetime>
@@ -35,11 +36,11 @@
       <ion-label stacked>Address</ion-label>
       <ion-input type="text" [(ngModel)]="container.address"></ion-input>
     </ion-item>
-
+-->
     <ion-item>
       <ion-label stacked>Category</ion-label>
-      <ion-select [(ngModel)]="container.idCat">
-        <ion-option *ngFor="let cat of categories" value="{{cat.catName}}" selected="{{cat == container.idCat}}">
+      <ion-select [(ngModel)]="container.idCat" multiple="true">
+        <ion-option *ngFor="let cat of categories" value="{{cat.catName}}" selected="{{cat.catName == 'Street art'}}">
           {{cat.catName}}
         </ion-option>
       </ion-select>
@@ -49,11 +50,9 @@
       <ion-label stacked>Artist</ion-label>
       <!--<ion-select *ngFor="let artist of container.artists">-->
       <ion-select [(ngModel)]="container.artists" multiple="true">
-        <ion-option *ngFor="let artist of artists" value="{{artist.name}}">
+        <ion-option *ngFor="let artist of artists" value="{{artist.name}}" selected="{{artist.name == 'Unknown'}}">
           {{artist.name}}
         </ion-option>
-        <ion-option value="0" selected="true">Unknown</ion-option>
-        <ion-option value="zaji">Zaji</ion-option>
       </ion-select>
     </ion-item>
 

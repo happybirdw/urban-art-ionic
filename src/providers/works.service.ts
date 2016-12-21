@@ -30,7 +30,7 @@ export class WorksService {
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
-          console.log(this.data);
+          console.log("works:", this.data);
           resolve(this.data);
         });
     });

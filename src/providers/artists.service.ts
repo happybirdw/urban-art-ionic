@@ -27,7 +27,7 @@ export class ArtistsService {
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
-          console.log(this.data);
+          console.log("artists: ", this.data);
           resolve(this.data);
         });
     });

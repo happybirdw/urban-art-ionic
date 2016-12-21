@@ -26,7 +26,7 @@ export class CategoriesService {
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
-          console.log(this.data);
+          console.log("cagegories:", this.data);
           resolve(this.data);
         });
     });

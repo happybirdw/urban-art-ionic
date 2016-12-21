@@ -1,5 +1,12 @@
 page-works {
-
+  ion-card.card.card-md {
+      width: 45%;
+      max-height: 100px;
+      float: left;
+  }
+  .card-md + ion-card {
+    margin-top: auto;
+  }
 }
 ion-col {
     padding: 0;

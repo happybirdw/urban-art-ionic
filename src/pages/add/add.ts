@@ -46,7 +46,7 @@ export class AddPage {
     })
       /* Test load image for Navigator */
       //this.base64Image = "data:image/jpeg;base64," + this.image64test;
-      this.uploadImage(this.image64test);
+      //this.uploadImage(this.image64test);
       
   }
 
@@ -61,11 +61,9 @@ export class AddPage {
       targetWidth: 500,
       targetHeight: 500
     }).then((imageData) => {
-      /* code need to use smartphone camera 
+      /* code need to use smartphone camera */
       this.base64Image = "data:image/jpeg;base64," + imageData; // image to display in works.html
       this.uploadImage(imageData); // image save in server
-      */
-
     }, (error) => {
       console.log("error ", error)
     });
