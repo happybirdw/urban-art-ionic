@@ -13,10 +13,8 @@ import 'rxjs/add/operator/map';
 export class WorksService {
   data: any;
 
-  imagesPath: string = "http://localhost:8000/";
-  //imagesPath: string = "assets/images/works/";
-
   constructor(public http: Http, private endpoints: Endpoints) {
+   
     console.log('Hello Works Provider');
   }
 
@@ -54,7 +52,7 @@ export class WorksService {
 
 
   getImagesPath() {
-    return this.imagesPath;
+    return this.endpoints.API_PATH;
     /*return "";*/
   }
 

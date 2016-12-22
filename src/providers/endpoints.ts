@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 export class Endpoints {
 
     //API_PATH: string = window.location.origin; // http://localhost:8000/
-   API_PATH: string = (window.location.origin.indexOf('heroku') >= 0) ? 'https://sleepy-beach-25354.herokuapp.com' : "http://localhost:8000"; 
+   //API_PATH: string = (window.location.origin.indexOf('heroku') >= 0) ? 'https://ionic-urban-art.herokuapp.com' : "http://localhost:8000"; 
+   API_PATH: string = "https://ionic-urban-art.herokuapp.com";
 
 /*  getLogin(){
     return this.API_PATH + "/sessions/create";

@@ -27,6 +27,7 @@
         <!-- *ngIf="{{i}} % 2 == 0"-->
         <ion-card *ngFor="let item of items">
           <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
+          <div>{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}</div>
           <div class="card-title">{{item.title}}</div>
           <div class="card-subtitle">{{item.description}}</div>
         </ion-card>
