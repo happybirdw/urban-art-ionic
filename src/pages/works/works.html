@@ -12,26 +12,28 @@
 
 
 <ion-content class="card-background-page">
-<!--  <ion-card *ngFor="let item of items" (click)="selectItem(item._id)">
+  <ion-card *ngFor="let item of items" (click)="selectItem(item._id)">
     <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
+    
     <div class="card-title">{{item.title}}</div>
     <div class="card-subtitle">{{item.description}}</div>
-  </ion-card>-->
+    <div>{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}</div>
+  </ion-card>
 
 
   <ion-grid>
    
-      <!--; #i = index (click)="selectItem(item._id)-->
+      <!-- #i = index (click)="selectItem(item._id) -->
 
-      <div >
-        <!-- *ngIf="{{i}} % 2 == 0"-->
+        <!-- *ngIf="{{i}} % 2 == 0" -->
+<!--      <div >
         <ion-card *ngFor="let item of items">
           <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
-          <div>{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}</div>
           <div class="card-title">{{item.title}}</div>
           <div class="card-subtitle">{{item.description}}</div>
+          <div>{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}</div>
         </ion-card>
-      </div>
+      </div>-->
 
 <!--      <ion-col width-50>
         <ion-card>

@@ -52,7 +52,7 @@ export class WorksService {
 
 
   getImagesPath() {
-    return this.endpoints.API_PATH;
+    return this.endpoints.API_PATH + "/img/";
     /*return "";*/
   }
 

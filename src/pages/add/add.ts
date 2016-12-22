@@ -58,6 +58,7 @@ export class AddPage {
   getPicture() {
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
+      //sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
       targetWidth: 500,
       targetHeight: 500
     }).then((imageData) => {
