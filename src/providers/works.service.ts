@@ -72,4 +72,13 @@ export class WorksService {
     });
   }
 
+  getWorkById(id) {
+    let selected = null;
+    this.data.map((work) => {
+      if (work.id == id) selected = work; console.log("1er selected", selected); return selected;
+    })
+    console.log("2eme selected", selected);
+    return selected
+  }
+
 }

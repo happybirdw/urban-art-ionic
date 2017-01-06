@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { WorksService } from '../../providers/works.service';
-import { Routes} from '../..app/app.routes';
+import { Routes} from '../../app/app.routes';
 
 /*
   Generated class for the Works page.
@@ -29,8 +29,14 @@ export class WorksPage {
     console.log('Hello WorksPage Page');
   }
 
-/*  selectItem(id) {
+  selectItem(id) {
+    console.log('selectItemId:', id);
     this.navCtrl.push(Routes.getPage(Routes.WORK),{id:id})
   }
-*/
+
+  selectItemObject(item) {
+   // console.log('selectItemId:', item._id);
+    this.navCtrl.push(Routes.getPage(Routes.WORK),{item:item})
+  }
+
 }

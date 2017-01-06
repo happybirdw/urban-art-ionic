@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { Geolocation } from 'ionic-native';
 
-import { Work } from '../../classes/work'
+import { Work } from '../../classes/work';
 import { WorksService } from '../../providers/works.service';
 import { CategoriesService } from '../../providers/categories.service';
 import { ArtistsService } from '../../providers/artists.service';

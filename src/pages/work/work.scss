@@ -1,3 +1,22 @@
 page-work {
 
+#imgContainer {
+    height: 300px;
+    width: 100%;
+  }
+
+  ion-navbar .toolbar-background {
+    background: transparent;
+
+  }
+  .bar-button-default-md,
+  .bar-button-clear-md-default,
+  .bar-button-md-default {
+    color: white;
+    background-color: transparent;
+  }
+  ion-content .scroll-content {
+    margin-top: 0px !important;
+  }
+
 }
