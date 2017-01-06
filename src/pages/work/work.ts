@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Routes } from '../../app/app.routes';
 import { WorksService } from '../../providers/works.service';
-import { Map } from '../../components/map/map';
+import { Map1 } from '../../components/map1/map';
 
 /*
   Generated class for the Work page.
@@ -14,10 +14,10 @@ import { Map } from '../../components/map/map';
   selector: 'page-work',
   templateUrl: 'work.html'
 })
-export class WorkPage implements OnInit {
+export class WorkPage { //implements OnInit {
 
-  @ViewChild(Map)
-  private map: Map;
+  @ViewChild(Map1)
+  private map: Map1;
 
   selectedWork: any;
   imagesPath: string;
@@ -33,18 +33,27 @@ export class WorkPage implements OnInit {
   }
 
 /*  
-  ionViewDidEnter(){
+  ngOnInit(){
     const pos = this.selectedWork.pos;
     this.map.init(pos[1], pos[0])
   }
 */
-  ngOnInit(){
-    /*const pos = this.selectedWork.pos;
-    this.map.init(pos[1], pos[0])*/
+  ionViewDidEnter(){
+    const pos = this.selectedWork.pos;
+    this.map.init(pos[1], pos[0])
+    //this.map.init(46.2043907, 6.143157699999961)
   }
 
   onClickBack() {
     this.navCtrl.pop();
+  }
+
+  go() {
+    //API : https://developers.google.com/maps/documentation/javascript/directions
+    //EXample : https://developers.google.com/maps/documentation/javascript/examples/directions-simple
+    /*navigator.geolocation.getCurrentPosition(position => {
+      console.log("getPosition", position);
+    })*/
   }
 
 }

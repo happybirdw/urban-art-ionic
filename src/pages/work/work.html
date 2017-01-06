@@ -16,9 +16,9 @@
 
 
 <ion-content>
-
-<div id="imgContainer" [style.background-image]="'url(' + imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg' + ')'"></div>
 <!--
+<div id="imgContainer" [style.background-image]="'url(' + imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg' + ')'"></div>
+-->
   <ion-card>
 
     <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
@@ -35,14 +35,14 @@
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='star'></ion-icon>
+          <ion-icon name='heart-outline'></ion-icon>
           Favorite
         </button>
       </ion-col>
       <ion-col text-center>
         <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='musical-notes'></ion-icon>
-          Listen
+          <ion-icon name='trending-up'></ion-icon>
+          Go
         </button>
       </ion-col>
       <ion-col text-right>
@@ -57,6 +57,6 @@
     
   </ion-card>
 
-<map></map>
--->  
+<map1></map1>
+
 </ion-content>
