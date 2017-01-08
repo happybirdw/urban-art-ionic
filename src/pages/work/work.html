@@ -19,7 +19,7 @@
 <!--
 <div id="imgContainer" [style.background-image]="'url(' + imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg' + ')'"></div>
 -->
-  <ion-card>
+  <ion-card class="no-margin">
 
     <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
 
@@ -34,19 +34,19 @@
     
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" icon-left>
+        <button ion-button clear small color="secondary" icon-left>
           <ion-icon name='heart-outline'></ion-icon>
           Favorite
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="danger" icon-left>
+        <button ion-button clear small color="secondary" icon-left>
           <ion-icon name='trending-up'></ion-icon>
           Go
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="danger" icon-left>
+        <button ion-button clear small color="secondary" icon-left>
           <ion-icon name='share-alt'></ion-icon>
           Share
         </button>

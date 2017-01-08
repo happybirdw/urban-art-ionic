@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { Geolocation } from 'ionic-native';
 
@@ -34,7 +34,8 @@ export class AddPage {
   constructor(public navCtrl: NavController,
               private workService: WorksService,
               private categoriesService: CategoriesService,
-              private ArtistsService: ArtistsService) 
+              private ArtistsService: ArtistsService,
+              private toastCtrl: ToastController) 
   {
     this.container = new Work();
     console.log("this.container:", this.container);
@@ -106,9 +107,20 @@ export class AddPage {
     this.container.datePosted = new Date();
     this.workService.post(this.container).then(() => {
       console.log("success:", this.container)
+      this.showToastWithCloseButton('Your files were successfully saved');
     }, () => {
+      this.showToastWithCloseButton('Save failed!');
       console.log("save error:", this.container)
     });
+  }
+
+  showToastWithCloseButton(msg) {
+    const toast = this.toastCtrl.create({
+      message: msg,
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
   }
 
 }

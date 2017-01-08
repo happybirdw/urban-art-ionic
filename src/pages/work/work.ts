@@ -40,8 +40,8 @@ export class WorkPage { //implements OnInit {
 */
   ionViewDidEnter(){
     const pos = this.selectedWork.pos;
-    this.map.init(pos[1], pos[0])
-    //this.map.init(46.2043907, 6.143157699999961)
+    this.map.init(pos[1], pos[0], this.selectedWork)
+    
   }
 
   onClickBack() {

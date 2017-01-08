@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
-import {WorksService} from '../../providers/works.service';
+import { WorksService } from '../../providers/works.service';
+import { Routes} from '../../app/app.routes';
+
 
 declare var google;
 /*
@@ -16,7 +19,7 @@ declare var google;
 export class Map {
 
   items: any = []
-  constructor(private worksService: WorksService) {
+  constructor(public navCtrl: NavController, private worksService: WorksService) {
        
   }
 
@@ -61,8 +64,8 @@ export class Map {
     // <area> element 'poly' which traces out a polygon as a series of X,Y points.
     // The final coordinate closes the poly by connecting to the first coordinate.
     var shape = {
-      coords: [1, 1, 1, 20, 18, 20, 18, 1],
-      type: 'poly'
+      coords: [1, 1, 20, 20],
+      type: 'rect'
     };
     for (var i = 0; i < this.items.length; i++) {
       var work = this.items[i];
@@ -83,10 +86,24 @@ export class Map {
         map: map,
         icon: image,
         shape: shape,
-        title: work.title,
-        zIndex: work[3]
+        title: work.title
+      });
+
+/*        
+  // Construct a new InfoWindow.
+  var infoWindow = new google.maps.InfoWindow({
+    content: work.title
+  });
+*/
+      marker.addListener('click', () => {
+        // infoWindow.open(map, marker);
+        console.log("work.title", work.title);
+        this.navCtrl.push(Routes.getPage(Routes.WORK),{item:work})
+
       });
     }
+
   }
+
 
 }

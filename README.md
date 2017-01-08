@@ -53,13 +53,26 @@ Google Map
 
 ## BDD (modèle) (Mongo)
 
-Up coming ...
+* [MongoDB](https://www.mongodb.com/) - MongoDB hosting in mLab's Database-as-a-Service
+* [mLab](https://mlab.com) - MongoDB hosting in mLab's Database-as-a-Service
+* [Heroku](https://devcenter.heroku.com/categories/nodejs) - Heroku deploy and scale Node.js applications in the cloud.
+* [RoboMongo](https://robomongo.org/) - Native MongoDB management tool (Admin UI)
+
+## Lauche on internet browser
+```
+ionic serve
+```
+
+## Lauche on ionic view
+```
+ionic upload
+```
 
 ## Authors
 
-* **Weiqian Zhong** - *Initial work* - [happybirdw](https://happybirdw@github.com/happybirdw/streetart.git)
+* **Weiqian Zhong** - *Initial work* - [happybirdw](https://happybirdw@github.com/happybirdw/urban-art-ionic.git)
 
-See also the projet path [https://github.com/happybirdw/streetart](https://happybirdw@github.com/happybirdw/streetart.git) .
+See also the projet path [https://github.com/happybirdw/urban-art-ionic](https://github.com/happybirdw/urban-art-ionic.git) .
 
 
 ## Acknowledgments

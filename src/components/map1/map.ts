@@ -36,36 +36,45 @@ export class Map1 {
     }
   ];
 
-  init(lat:number, long:number, zoom:number=14) {
+  init(lat:number, long:number, work:any, zoom:number=18) {
 
     this.map = new google.maps.Map(document.getElementById("map_canvas1"), {
           center: new google.maps.LatLng(lat, long),
           zoom: zoom,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          //mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.SATELLITE,
+          heading: 90,
+          tilt: 45
      });
+
      this.map.setOptions({styles: this.styles});
+
      console.log(this.map);
       this.worksService.load().then((data)=>{
 
         console.log("this.items =",data)
         this.items = data;
-        this.setMarkers(this.map);
+        this.setMarkers(this.map, work);
       })  
      
   }
 
-  setMarkers(map) {
+  rotate90() {
+    var heading = this.map.getHeading() || 0;
+    this.map.setHeading(heading + 90);
+  }
+
+  setMarkers(map, work) {
     // Adds markers to the map.
 
     // Shapes define the clickable region of the icon. The type defines an HTML
     // <area> element 'poly' which traces out a polygon as a series of X,Y points.
     // The final coordinate closes the poly by connecting to the first coordinate.
     var shape = {
-      coords: [1, 1, 1, 20, 18, 20, 18, 1],
-      type: 'poly'
+      coords: [1, 1, 20, 20],
+      type: 'rect'
     };
-    for (var i = 0; i < this.items.length; i++) {
-      var work = this.items[i];
+
       var image = {
         
         url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
@@ -86,7 +95,6 @@ export class Map1 {
         title: work.title,
         zIndex: work[3]
       });
-    }
   }
 
 }

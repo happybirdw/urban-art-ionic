@@ -13,7 +13,7 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor="let item of items" (click)="selectItemObject(item)">
+  <ion-card class="no-margin width-50" *ngFor="let item of items" (click)="selectItemObject(item)">
     <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
     
     <div class="card-title">{{item.title}}</div>
