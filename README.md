@@ -58,12 +58,12 @@ Google Map
 * [Heroku](https://devcenter.heroku.com/categories/nodejs) - Heroku deploy and scale Node.js applications in the cloud.
 * [RoboMongo](https://robomongo.org/) - Native MongoDB management tool (Admin UI)
 
-## Lauche on internet browser
+## Launche on internet browser
 ```
 ionic serve
 ```
 
-## Lauche on ionic view
+## Launche on ionic view
 ```
 ionic upload
 ```
