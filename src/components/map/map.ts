@@ -79,7 +79,7 @@ export class Map {
         // The anchor for this image is the base of the flagpole at (0, 32).
         anchor: new google.maps.Point(0, 20)
       };
-      console.log("creating marker",work)
+      console.log("creating marker", work)
 
       var marker = new google.maps.Marker({
         position: {lat: work.pos[1], lng: work.pos[0]},
@@ -97,11 +97,11 @@ export class Map {
 */
       marker.addListener('click', () => {
         // infoWindow.open(map, marker);
-        console.log("work.title", work.title);
-        this.navCtrl.push(Routes.getPage(Routes.WORK),{item:work})
-
+        console.log("marker.title",  marker.title);
+        this.navCtrl.push(Routes.getPage(Routes.WORK),{item: work})
       });
     }
+
 
   }
 

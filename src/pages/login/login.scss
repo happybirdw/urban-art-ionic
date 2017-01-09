@@ -1,0 +1,11 @@
+page-login {
+    .login_list {
+    text-align: center;
+    margin-top: 20px;
+    }
+    .login_error {
+    color: color($colors, error);
+    text-align: center;
+    }
+
+}

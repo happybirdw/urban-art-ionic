@@ -8,13 +8,13 @@ export class Endpoints {
    //API_PATH: string = (window.location.origin.indexOf('heroku') >= 0) ? 'https://ionic-urban-art.herokuapp.com' : "http://localhost:8000"; 
    API_PATH: string = "https://ionic-urban-art.herokuapp.com";
 
-/*  getLogin(){
+  getLogin(){
     return this.API_PATH + "/sessions/create";
   }
 
   getSignup(){
     return this.API_PATH + "/users";
-  }*/
+  }
 
   getWorks(){
       return this.API_PATH + "/works"

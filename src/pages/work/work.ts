@@ -25,7 +25,6 @@ export class WorkPage { //implements OnInit {
   constructor(public navCtrl: NavController, private params: NavParams, private worksService: WorksService) {
     this.imagesPath = this.worksService.getImagesPath();
     this.selectedWork = params.data.item;
-
   }
 
   ionViewDidLoad() {

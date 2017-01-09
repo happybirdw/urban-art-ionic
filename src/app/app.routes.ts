@@ -1,4 +1,6 @@
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AroundPage } from '../pages/around/around';
 import { WorksPage } from '../pages/works/works';
@@ -9,6 +11,8 @@ import { WorkPage } from '../pages/work/work';
 
 export class Routes {
     static HOME: string = "home";
+    static LOGIN: string = "login";
+    static SIGNUP: string = "signup";
     static TABS: string = "tabs";
     static AROUND: string = "around";
     static WORKS: string = "works";
@@ -18,6 +22,8 @@ export class Routes {
 
     static pages = {
         [Routes.HOME]: HomePage,
+        [Routes.LOGIN]: LoginPage,
+        [Routes.SIGNUP]: SignupPage,
         [Routes.TABS]: TabsPage,
         [Routes.AROUND]: AroundPage,
         [Routes.WORKS]: WorksPage,
