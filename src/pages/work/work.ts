@@ -48,6 +48,7 @@ export class WorkPage { //implements OnInit {
   }
 
   go() {
+    console.log("go clicked");
     //API : https://developers.google.com/maps/documentation/javascript/directions
     //EXample : https://developers.google.com/maps/documentation/javascript/examples/directions-simple
     /*navigator.geolocation.getCurrentPosition(position => {

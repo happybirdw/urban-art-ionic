@@ -5,13 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header no-shadow>
-
+<!--
   <header-content *ngIf="selectedWork.title" title={{selectedWork.title}} backEnabled={{true}} (onBack)="onClickBack()"></header-content>
-  
-<!--  <ion-navbar>
+ --> 
+  <ion-navbar>
     <ion-title>
     </ion-title>
-  </ion-navbar>-->
+  </ion-navbar>
 </ion-header>
 
 
@@ -22,7 +22,11 @@
   <ion-card class="no-margin">
 
     <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
-
+  
+    <ion-fab  top right>
+      <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    
     <ion-card-content>
       <ion-card-title>
         {{selectedWork.title}}
@@ -40,7 +44,7 @@
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="secondary" icon-left>
+        <button ion-button clear small color="secondary" icon-left (click)="go()">
           <ion-icon name='trending-up'></ion-icon>
           Go
         </button>
@@ -51,7 +55,26 @@
           Share
         </button>
       </ion-col>
+
     </ion-row>
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-icon small name='time' item-left></ion-icon>
+      Posted on {{selectedWork.datePosted | date: 'd MMMM yyyy'}}
+    </ion-item>
+    <ion-item>
+      <ion-icon small name='pin' item-left></ion-icon>
+      {{selectedWork.address}}
+    </ion-item>  
+    <ion-item>
+      <ion-icon small name='color-palette' item-left></ion-icon>
+      Painted by {{selectedWork.artists[0]}}
+    </ion-item>    
+  
+  </ion-list>
 
     
     

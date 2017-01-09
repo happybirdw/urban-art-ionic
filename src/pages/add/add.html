@@ -17,12 +17,12 @@
   <ion-list>
 
     <ion-item>
-      <ion-label stacked>Titre</ion-label>
+      <ion-label stacked  color="secondary">Titre</ion-label>
       <ion-input type="text" placeholder="New art work" [(ngModel)]="container.title"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Description</ion-label>
+      <ion-label stacked  color="secondary">Description</ion-label>
       <ion-input type="text" placeholder="About the work" [(ngModel)]="container.description"></ion-input>
     </ion-item>
 
@@ -38,7 +38,7 @@
     </ion-item>
 -->
     <ion-item>
-      <ion-label stacked>Category</ion-label>
+      <ion-label stacked color="secondary">Category</ion-label>
       <ion-select [(ngModel)]="container.idCat" multiple="true">
         <ion-option *ngFor="let cat of categories" value="{{cat.catName}}" selected="{{cat.catName == 'Street art'}}">
           {{cat.catName}}
@@ -47,7 +47,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Artist</ion-label>
+      <ion-label stacked color="secondary">Artist</ion-label>
       <!--<ion-select *ngFor="let artist of container.artists">-->
       <ion-select [(ngModel)]="container.artists" multiple="true">
         <ion-option *ngFor="let artist of artists" value="{{artist.name}}" selected="{{artist.name == 'Unknown'}}">
@@ -67,7 +67,7 @@
 
     <ion-fab right bottom>
       <button ion-fab color="primary" (click)="save()">
-        <ion-icon name="add"></ion-icon>
+        <ion-icon name="paper-plane"></ion-icon>
       </button>
     </ion-fab>
 

@@ -107,18 +107,18 @@ export class AddPage {
     this.container.datePosted = new Date();
     this.workService.post(this.container).then(() => {
       console.log("success:", this.container)
-      this.showToastWithCloseButton('Your files were successfully saved');
+      this.showToast('Your files were successfully saved');
     }, () => {
-      this.showToastWithCloseButton('Save failed!');
+      this.showToast('Save failed!');
       console.log("save error:", this.container)
     });
   }
 
-  showToastWithCloseButton(msg) {
+  showToast(msg) {
     const toast = this.toastCtrl.create({
       message: msg,
-      showCloseButton: true,
-      closeButtonText: 'Ok'
+      duration: 2000,
+      position: 'bottom'
     });
     toast.present();
   }

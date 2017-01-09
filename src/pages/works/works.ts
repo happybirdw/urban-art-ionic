@@ -39,4 +39,16 @@ export class WorksPage {
     this.navCtrl.push(Routes.getPage(Routes.WORK),{item:item})
   }
 
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 10; i++) {
+        this.items.push( this.items.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }
 }
