@@ -19,10 +19,13 @@
       <img src="{{imagesPath + item._id + '-' + item.photos[0] + '.jpeg'}}" />
     </div>
 
-    <div class="item-content">
+<ion-list>
+  <ion-item class="item-content">
       <div class="item-title">{{item.title}}</div>
       <div class="item-subtitle">{{item.description}}</div>
-    </div>
+    <ion-icon name="heart-outline" item-right></ion-icon>
+  </ion-item>
+</ion-list>
 
   </div>
 

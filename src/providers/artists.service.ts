@@ -23,7 +23,7 @@ export class ArtistsService {
     }
 
     return new Promise(resolve => {
-      this.http.get(this.endpoints.getArtists())
+      this.http.get(this.endpoints.artists())
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

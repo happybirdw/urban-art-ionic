@@ -24,7 +24,7 @@ export class WorksService {
     }
 
     return new Promise(resolve => {
-      this.http.get(this.endpoints.getWorks())
+      this.http.get(this.endpoints.works())
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -36,7 +36,7 @@ export class WorksService {
 
   post(data) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.endpoints.postWork(), data)
+      this.http.post(this.endpoints.works(), data)
         .map(res => res.json())
         .subscribe(err => {
           console.log(err);
@@ -58,8 +58,8 @@ export class WorksService {
 
   uploadImage(imgData, imgName) {
     return new Promise((resolve, reject) => {
-      console.log("Works service - uploadImage() to " + this.endpoints.postImage())
-      this.http.post(this.endpoints.postImage(), { imgData: imgData, imgName: imgName })
+      console.log("Works service - uploadImage() to " + this.endpoints.images())
+      this.http.post(this.endpoints.images(), { imgData: imgData, imgName: imgName })
         //.map(res => res.json())
         .subscribe(err => {
           console.log(err);

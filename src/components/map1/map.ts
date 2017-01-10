@@ -15,12 +15,12 @@ declare var google;
 })
 export class Map1 {
 
-  items: any = []
-  constructor(private worksService: WorksService) {
-       
-  }
-
   map: any;
+  lat: number;
+  long: number;
+  items: any = []
+  constructor(private worksService: WorksService) {}
+
   styles = [
     {
         "featureType": "all",
@@ -48,6 +48,25 @@ export class Map1 {
      });
 
      this.map.setOptions({styles: this.styles});
+      
+      // Current position marker with infoWindow
+      navigator.geolocation.getCurrentPosition(position => {
+        this.long = position.coords.longitude;
+        this.lat = position.coords.latitude;
+      })   
+      console.log("current position:" + this.long + ", " + this.lat);
+      var marker = new google.maps.Marker({
+              position: { lat: this.lat, lng: this.long },
+              map: this.map,
+              title: 'Where I am'
+            });
+      var infowindow = new google.maps.InfoWindow({
+              content: '<b>' + marker.title + '</b>',
+              size: new google.maps.Size(150, 50)
+            });
+      google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(this.map, marker);
+            });
 
      console.log(this.map);
       this.worksService.load().then((data)=>{

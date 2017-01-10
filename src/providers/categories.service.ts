@@ -22,7 +22,7 @@ export class CategoriesService {
     }
 
     return new Promise(resolve => {
-      this.http.get(this.endpoints.getCategories())
+      this.http.get(this.endpoints.categories())
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

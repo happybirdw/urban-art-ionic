@@ -14,14 +14,23 @@ import {Map} from '../../components/map/map';
   templateUrl: 'around.html'
 })
 export class AroundPage implements OnInit {
-
+  long: number;
+  lat: number;
   @ViewChild(Map)
   private map: Map;
 
   constructor() {}
 
   ngOnInit(){
-    this.map.init(46.2043907, 6.143157699999961)
+    this.getPosition();
+    this.map.init(this.long, this.lat)
   }
-
+  getPosition() {
+    navigator.geolocation.getCurrentPosition(position => {
+      /* Geolocation.getCurrentPosition().then(position => { */
+      console.log("getPosition", position);
+      this.long = position.coords.longitude;
+      this.lat =position.coords.latitude;
+    })
+  }
 }

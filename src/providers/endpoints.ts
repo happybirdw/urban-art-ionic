@@ -8,32 +8,29 @@ export class Endpoints {
    //API_PATH: string = (window.location.origin.indexOf('heroku') >= 0) ? 'https://ionic-urban-art.herokuapp.com' : "http://localhost:8000"; 
    API_PATH: string = "https://ionic-urban-art.herokuapp.com";
 
-  getLogin(){
-    return this.API_PATH + "/sessions/create";
+  login(){
+    return this.API_PATH + "/login";
   }
 
-  getSignup(){
+  signup(){
     return this.API_PATH + "/users";
   }
 
-  getWorks(){
+  works(){
       return this.API_PATH + "/works"
   }
 
-  postWork(){
-      return this.API_PATH + "/works"
-  }
-  getCategories(){
+  categories(){
       return this.API_PATH + "/categories"
   }
-  getArtists(){
+  artists(){
       return this.API_PATH + "/artists"
   }
 /*  postCategory(){
       return this.API_PATH + "/category"
   }*/
 
-  postImage() {
+  images() {
       return this.API_PATH + "/images"
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { JwtHelper, AuthHttp } from 'angular2-jwt';
-import {Endpoints} from './endpoints';
+import { Endpoints } from './endpoints';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
@@ -14,9 +14,19 @@ export class Auth {
   local: Storage = new Storage();
   user: any;
   error: string;
-  isInit: boolean=false;
+  isInit: boolean = false;
+  long: number;
+  lat: number;
 
-  constructor(private authHttp: AuthHttp, private endpoints: Endpoints) {}
+  constructor(private authHttp: AuthHttp, private endpoints: Endpoints) {
+
+      navigator.geolocation.getCurrentPosition(position => {
+        console.log("getPosition", position);
+        this.long = position.coords.longitude;
+        this.lat =position.coords.latitude;
+      })
+    
+  }
 
   init(){
     this.isInit = true;
@@ -29,7 +39,7 @@ export class Auth {
   }
 
   login(credentials) {
-    let observable = this.authHttp.post(this.endpoints.getLogin(),
+    let observable = this.authHttp.post(this.endpoints.login(),
       JSON.stringify(credentials),{ headers: this.contentHeader })
       .map(res => { return res.json()})
 
@@ -40,7 +50,7 @@ export class Auth {
   }
 
   signup(credentials) {
-    let observable = this.authHttp.post(this.endpoints.getSignup(),
+    let observable = this.authHttp.post(this.endpoints.signup(),
       JSON.stringify(credentials),{ headers: this.contentHeader })
       .map(res => { return res.json()})
         return observable.toPromise().then((data)=>{
@@ -62,5 +72,7 @@ export class Auth {
     this.local.remove('id_token');
     this.user = null;
   }
+
+  
 
 }

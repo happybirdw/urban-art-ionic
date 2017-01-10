@@ -28,11 +28,14 @@ page-works {
     right: 0;
     margin: auto;
   }
+
+  .list-md {
+    margin: 0;
+  } 
   .item-content {
     position: absolute;
-    margin-top: -64px;
+    margin-top: -67px;
     width: calc(50% - 4px);
-    padding: 15px;
     background: rgba(0, 0, 0, 0.3);
     color: white;
   }
