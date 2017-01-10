@@ -9,10 +9,11 @@ import {Auth} from '../providers/auth';
 import { WorksService } from '../providers/works.service';
 import { CategoriesService } from '../providers/categories.service';
 import { ArtistsService } from '../providers/artists.service';
+import { UsersService } from '../providers/users.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [WorksService, CategoriesService, ArtistsService],
+  providers: [WorksService, CategoriesService, ArtistsService, UsersService],
 })
 export class MyApp {
   rootPage: any;

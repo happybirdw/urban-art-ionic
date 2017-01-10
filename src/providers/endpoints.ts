@@ -12,7 +12,7 @@ export class Endpoints {
     return this.API_PATH + "/login";
   }
 
-  signup(){
+  users(){
     return this.API_PATH + "/users";
   }
 

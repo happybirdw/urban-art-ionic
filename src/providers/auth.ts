@@ -50,7 +50,7 @@ export class Auth {
   }
 
   signup(credentials) {
-    let observable = this.authHttp.post(this.endpoints.signup(),
+    let observable = this.authHttp.post(this.endpoints.users(),
       JSON.stringify(credentials),{ headers: this.contentHeader })
       .map(res => { return res.json()})
         return observable.toPromise().then((data)=>{
