@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { Auth } from '../../providers/auth';
 import {WorksService} from '../../providers/works.service';
 
 declare var google;
@@ -19,7 +20,10 @@ export class Map1 {
   lat: number;
   long: number;
   items: any = []
-  constructor(private worksService: WorksService) {}
+  constructor(private worksService: WorksService, private auth: Auth) {
+    this.lat = auth.lat;
+    this.long = auth.long;
+  }
 
   styles = [
     {
@@ -36,28 +40,21 @@ export class Map1 {
     }
   ];
 
-  init(lat:number, long:number, work:any, zoom:number=18) {
+  init(lat:number, long:number, work:any, zoom:number=15) {
 
     this.map = new google.maps.Map(document.getElementById("map_canvas1"), {
           center: new google.maps.LatLng(lat, long),
           zoom: zoom,
-          //mapTypeId: google.maps.MapTypeId.ROADMAP
-          mapTypeId: google.maps.MapTypeId.SATELLITE,
-          heading: 90,
-          tilt: 45
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
      });
 
      this.map.setOptions({styles: this.styles});
       
       // Current position marker with infoWindow
-      navigator.geolocation.getCurrentPosition(position => {
-        this.long = position.coords.longitude;
-        this.lat = position.coords.latitude;
-      })   
-      console.log("current position:" + this.long + ", " + this.lat);
       var marker = new google.maps.Marker({
               position: { lat: this.lat, lng: this.long },
               map: this.map,
+              icon: '../../assets/icon/Me.png',
               title: 'Where I am'
             });
       var infowindow = new google.maps.InfoWindow({
@@ -68,19 +65,11 @@ export class Map1 {
               infowindow.open(this.map, marker);
             });
 
-     console.log(this.map);
       this.worksService.load().then((data)=>{
-
-        console.log("this.items =",data)
         this.items = data;
         this.setMarkers(this.map, work);
       })  
      
-  }
-
-  rotate90() {
-    var heading = this.map.getHeading() || 0;
-    this.map.setHeading(heading + 90);
   }
 
   setMarkers(map, work) {
@@ -93,7 +82,7 @@ export class Map1 {
       coords: [1, 1, 20, 20],
       type: 'rect'
     };
-
+/*
       var image = {
         
         url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
@@ -104,15 +93,14 @@ export class Map1 {
         // The anchor for this image is the base of the flagpole at (0, 32).
         anchor: new google.maps.Point(0, 20)
       };
-      console.log("creating marker",work)
+*/
 
       var marker = new google.maps.Marker({
         position: {lat: work.pos[1], lng: work.pos[0]},
         map: map,
-        icon: image,
+        icon: '../../assets/icon/work.png',
         shape: shape,
         title: work.title,
-        zIndex: work[3]
       });
   }
 

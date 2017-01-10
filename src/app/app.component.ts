@@ -4,6 +4,8 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { Routes } from './app.routes';
 
+import {Auth} from '../providers/auth';
+
 import { WorksService } from '../providers/works.service';
 import { CategoriesService } from '../providers/categories.service';
 import { ArtistsService } from '../providers/artists.service';
@@ -15,7 +17,7 @@ import { ArtistsService } from '../providers/artists.service';
 export class MyApp {
   rootPage: any;
 
-  constructor(platform: Platform) {
+  constructor(platform: Platform, private auth:Auth) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -25,6 +27,6 @@ export class MyApp {
   }
 
   ngOnInit() {
-    this.rootPage = Routes.getRootPage(true); // false in when auth is defined
+    this.rootPage = Routes.getRootPage(false); // false in when auth is defined
   }
 }

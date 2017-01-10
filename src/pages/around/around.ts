@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {Map} from '../../components/map/map';
+import { Map } from '../../components/map/map';
 
 
 /*
@@ -22,15 +22,7 @@ export class AroundPage implements OnInit {
   constructor() {}
 
   ngOnInit(){
-    this.getPosition();
-    this.map.init(this.long, this.lat)
+    this.map.init()
   }
-  getPosition() {
-    navigator.geolocation.getCurrentPosition(position => {
-      /* Geolocation.getCurrentPosition().then(position => { */
-      console.log("getPosition", position);
-      this.long = position.coords.longitude;
-      this.lat =position.coords.latitude;
-    })
-  }
+
 }

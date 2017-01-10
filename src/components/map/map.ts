@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { Auth } from '../../providers/auth';
 import { WorksService } from '../../providers/works.service';
 import { Routes } from '../../app/app.routes';
 
@@ -19,12 +20,13 @@ declare var google;
 export class Map {
 
   map: any;
-  lat: number = 46.2043907;
-  long: number = 6.143157699999961;
+  lat: number; // = 46.2043907;
+  long: number; //  = 6.143157699999961;
   items: any = [];
 
-  constructor(public navCtrl: NavController, private worksService: WorksService) {
-    //this.getPosition();
+  constructor(public navCtrl: NavController, private worksService: WorksService, private auth: Auth) {
+    this.lat = auth.lat;
+    this.long = auth.long;
   }
   // map styles
   styles = [
@@ -41,18 +43,8 @@ export class Map {
       ]
     }
   ];
-  /*
-    getPosition() {
-      navigator.geolocation.getCurrentPosition(position => {
-        /* Geolocation.getCurrentPosition().then(position => { 
-        console.log("getPosition", position);
-        this.long = position.coords.longitude;
-        this.lat =position.coords.latitude;
-      })
-    }
-  */
 
-  init(lat: number, long: number, zoom: number = 14) {
+  init(zoom: number = 14) {
 
     //console.log("initPosition", this.lat, this.long);
     this.map = new google.maps.Map(document.getElementById("map_canvas"), {
@@ -77,6 +69,7 @@ export class Map {
       infowindow.open(this.map, marker);
     });
 
+    // Create all markers from the dataBase Works
     this.worksService.load().then((data) => {
 
       this.items = data;

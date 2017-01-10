@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Routes } from '../../app/app.routes';
+import { Auth } from '../../providers/auth';
 import { WorksService } from '../../providers/works.service';
 import { Map1 } from '../../components/map1/map';
 
@@ -23,12 +24,18 @@ export class WorkPage { //implements OnInit {
   selectedWork: any;
   imagesPath: string;
   title: string;
-  lat: number = 46.2043907;
-  long: number = 6.143157699999961;  
+  lat: number;
+  long: number;  
 
-  constructor(public navCtrl: NavController, private params: NavParams, private worksService: WorksService) {
+  constructor(
+              public navCtrl: NavController, 
+              private params: NavParams, 
+              private worksService: WorksService, 
+              private auth: Auth) {
     this.imagesPath = this.worksService.getImagesPath();
     this.selectedWork = params.data.item;
+    this.lat = auth.lat;
+    this.long = auth.long;
   }
 
   ionViewDidLoad() {
