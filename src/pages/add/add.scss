@@ -1,3 +1,32 @@
 page-add {
+  /* item styles 
+  .item-images{
+    display: inline-block;
+    margin-bottom: 4px;
+    width: calc(50% - 2px);
+    margin-right: 4px;    
+  }
+  .item-images:nth-of-type(2n) {
+    margin-right: 0;
+  }
 
+  .item-image {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%;
+  }
+
+  .item-image img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    object-fit: cover;
+  }
+  */
 }

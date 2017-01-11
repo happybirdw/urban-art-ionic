@@ -96,5 +96,7 @@ See also the projet path [https://github.com/happybirdw/urban-art-ionic](https:/
 * [Google Design](https://design.google.com) - Material design Guildlines.
 * [Sketch App Resources](https://www.sketchappsources.com/) - Free sketch app resources.
 
+# Submit App to Apple
+* [www.raywenderlich.com] (https://www.raywenderlich.com/127936/submit-an-app-part-1) - Etap à suivre
 
 > Written with [StackEdit](https://stackedit.io/).

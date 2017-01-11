@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { Geolocation } from 'ionic-native';
@@ -26,7 +26,7 @@ export class AddPage {
   categories: any;
   artists: any;
   index: number = 0; // index for saving pictures as imageName
-  public base64Image: string; // to display in add.html
+  base64Image: any = []; // to display in add.html
 
   image64test = "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACAAIADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAUH/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AvgDJFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/9k=";
 
@@ -35,7 +35,8 @@ export class AddPage {
               private workService: WorksService,
               private categoriesService: CategoriesService,
               private ArtistsService: ArtistsService,
-              private toastCtrl: ToastController) 
+              private toastCtrl: ToastController,
+              private _ngZone: NgZone) 
   {
     this.container = new Work();
     console.log("this.container:", this.container);
@@ -64,10 +65,16 @@ export class AddPage {
       targetHeight: 500
     }).then((imageData) => {
       /* code need to use smartphone camera */
-      this.base64Image = "data:image/jpeg;base64," + imageData; // image to display in works.html
+      this.base64Image.push( "data:image/jpeg;base64," + imageData); // image to display in works.html
       this.uploadImage(imageData); // image save in server
     }, (error) => {
-      console.log("error ", error)
+      console.log("error ", error);
+      /* Test load image for Navigator */
+      this._ngZone.run(() => {
+        //this.base64Image = "data:image/jpeg;base64," + this.image64test;
+        this.base64Image.push( "data:image/jpeg;base64," + this.image64test);
+        this.uploadImage(this.image64test);
+      })
     });
   }
 

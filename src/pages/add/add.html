@@ -61,9 +61,9 @@
       <span>Take picture</span>
     </button>
 
-    <ion-card>
-      <img [src]="base64Image" *ngIf="base64Image" />
-    </ion-card>
+    <div class="item-image"  *ngFor="let image of base64Image" >
+      <img src="{{image}}" />
+    </div>
 
     <ion-fab right bottom>
       <button ion-fab color="primary" (click)="save()">

@@ -38,15 +38,16 @@ export class WorksService {
     return new Promise((resolve, reject) => {
       this.http.post(this.endpoints.works(), data)
         .map(res => res.json())
-        .subscribe(err => {
-          console.log(err);
-          if (err) {
-            reject(err);
+        .subscribe(data => {
+          if (!data) {
+            reject();
           } else {
-            resolve()
+            this.data = [...this.data, data]; // this.data.push(data)
+            resolve(this.data);
           }
-
-        });
+        },
+        err => { reject(err) }
+        );
     });
   }
 
@@ -60,15 +61,15 @@ export class WorksService {
     return new Promise((resolve, reject) => {
       console.log("Works service - uploadImage() to " + this.endpoints.images())
       this.http.post(this.endpoints.images(), { imgData: imgData, imgName: imgName })
-        //.map(res => res.json())
-        .subscribe(err => {
-          console.log(err);
-          if (err) {
-            reject(err);
+        .subscribe(data => {
+          if (!data) {
+            reject();
           } else {
-            resolve()
+            resolve();
           }
-        });
+        },
+        err => { reject(err) }
+        );
     });
   }
 

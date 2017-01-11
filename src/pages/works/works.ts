@@ -17,7 +17,7 @@ import { Routes} from '../../app/app.routes';
 export class WorksPage {
 
   imagesPath: string;
-  items: any = []
+  items: any = [];
   constructor(public navCtrl: NavController, private worksService: WorksService) {
       this.imagesPath = this.worksService.getImagesPath();
       this.worksService.load().then((data)=>{
