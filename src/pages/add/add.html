@@ -61,8 +61,10 @@
       <span>Take picture</span>
     </button>
 
-    <div class="item-image"  *ngFor="let image of base64Image" >
-      <img src="{{image}}" />
+    <div class="item-images no-margin" *ngFor="let image of base64Image" >
+      <div class="item-image">
+        <img src="{{image}}" />
+      </div>
     </div>
 
     <ion-fab right bottom>

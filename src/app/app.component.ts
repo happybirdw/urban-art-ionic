@@ -28,6 +28,6 @@ export class MyApp {
   }
 
   ngOnInit() {
-    this.rootPage = Routes.getRootPage(false); // false in when auth is defined
+    this.rootPage = Routes.getRootPage(false); // false in when auth is undefined
   }
 }

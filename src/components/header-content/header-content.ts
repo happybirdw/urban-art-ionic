@@ -21,11 +21,15 @@ export class HeaderContentComponent {
   constructor() {
   }
 
-  nbOnInit() {
+  ngOnInit() {
     this.showBack = this.backEnabled;
   }
 
   onClickBack() {
     this.onBack.emit({})
+  }
+
+  showMore() {
+    
   }
 }

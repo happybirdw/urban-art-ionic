@@ -65,8 +65,10 @@ export class AddPage {
       targetHeight: 500
     }).then((imageData) => {
       /* code need to use smartphone camera */
-      this.base64Image.push( "data:image/jpeg;base64," + imageData); // image to display in works.html
-      this.uploadImage(imageData); // image save in server
+      this._ngZone.run(() => {
+        this.base64Image.push( "data:image/jpeg;base64," + imageData); // image to display in works.html
+        this.uploadImage(imageData); // image save in server
+      })
     }, (error) => {
       console.log("error ", error);
       /* Test load image for Navigator */

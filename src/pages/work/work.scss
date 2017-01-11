@@ -27,15 +27,18 @@ page-work {
     object-fit: cover;
   }
 
+  ion-navbar .toolbar-background {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+
+
   #imgContainer {
       height: 300px;
       width: 100%;
     }
 
-    ion-navbar .toolbar-background {
-      background: transparent;
 
-    }
     .bar-button-default-md,
     .bar-button-clear-md-default,
     .bar-button-md-default {
