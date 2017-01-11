@@ -73,7 +73,8 @@ export class WorkPage { //implements OnInit {
 
     //directionsDisplay.setMap(this.map.init(this.selectedWork.pos[1], this.selectedWork.pos[0], this.selectedWork));
     directionsDisplay.setMap(this.map.map);
-
+    directionsDisplay.setOptions( { suppressMarkers: true } );
+    
     directionsService.route({
       origin: {lat: this.lat, lng: this.long}, // current position
       destination: {lat: this.selectedWork.pos[1], lng: this.selectedWork.pos[0]}, // work position

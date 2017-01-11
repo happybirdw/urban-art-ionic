@@ -95,15 +95,15 @@ export class Map {
       var work = this.items[i];
 /*      var image = {
 
-        url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
+        url: '../../assets/icon/work.png',
         // This marker is 20 pixels wide by 20 pixels high.
         size: new google.maps.Size(20, 20),
         // The origin for this image is (0, 0).
         origin: new google.maps.Point(0, 0),
         // The anchor for this image is the base of the flagpole at (0, 32).
         anchor: new google.maps.Point(0, 20)
-      };
-*/
+      };*/
+
       let marker = new google.maps.Marker({
         position: { lat: work.pos[1], lng: work.pos[0] },
         map: map,

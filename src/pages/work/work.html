@@ -19,14 +19,15 @@
 <!--
 <div id="imgContainer" [style.background-image]="'url(' + imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg' + ')'"></div>
 -->
-  <ion-card class="no-margin">
-
-    <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
   
-    <ion-fab  top right>
-      <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+  <ion-fab  bottom right>
+    <button ion-fab color="primary" (click)="go()"><ion-icon name="trending-up"></ion-icon></button>
+  </ion-fab>
     
+  <ion-card class="no-margin">
+    <div class="img-item">
+      <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
+    </div>
     <ion-card-content>
       <ion-card-title>
         {{selectedWork.title}}

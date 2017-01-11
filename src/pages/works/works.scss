@@ -27,6 +27,7 @@ page-works {
     left: 0;
     right: 0;
     margin: auto;
+    object-fit: cover;
   }
 
   .list-md {
@@ -34,7 +35,7 @@ page-works {
   } 
   .item-content {
     position: absolute;
-    margin-top: -67px;
+    margin-top: -64px;
     width: calc(50% - 4px);
     background: rgba(0, 0, 0, 0.3);
     color: white;
