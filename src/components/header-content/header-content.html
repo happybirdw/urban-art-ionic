@@ -12,13 +12,19 @@
       </button>
     </ion-buttons>
 
-    <ion-title>
+    <ion-title text-center>
       {{title}}
     </ion-title>
 
-    <ion-buttons end>
+    <ion-buttons end *ngIf="showMore">
       <button ion-button icon-only menuToggle>
-        <ion-icon name="more" (click)="showMore()"></ion-icon>
+        <ion-icon name="more" (click)="onClicMore()"></ion-icon>
+      </button>    
+    </ion-buttons>
+
+    <ion-buttons end *ngIf="showNext">
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="arrow-forward" (click)="onClickNext()"></ion-icon>
       </button>    
     </ion-buttons>
   </ion-toolbar>

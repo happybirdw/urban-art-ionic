@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Routes } from '../../app/app.routes';
 import { Auth } from '../../providers/auth';
 import { WorksService } from '../../providers/works.service';
@@ -25,13 +25,18 @@ export class WorkPage { //implements OnInit {
   imagesPath: string;
   title: string;
   lat: number;
-  long: number;  
+  long: number;
+  isFavorite: boolean = false;
+
+  testCheckboxOpen: boolean;
+  testCheckboxResult;
 
   constructor(
               public navCtrl: NavController, 
               private params: NavParams, 
               private worksService: WorksService, 
-              private auth: Auth) {
+              private auth: Auth,
+              public alertCtrl: AlertController) {
     this.imagesPath = this.worksService.getImagesPath();
     this.selectedWork = params.data.item;
     this.lat = auth.lat;
@@ -57,6 +62,12 @@ export class WorkPage { //implements OnInit {
   onClickBack() {
     this.navCtrl.pop();
   }
+
+  slidesOptions:Object={
+    pager: true,
+    //autoHeight: true
+  };
+
 
   go() {
     console.log("go clicked");
@@ -90,6 +101,45 @@ export class WorkPage { //implements OnInit {
         window.alert('Directions request failed due to ' + status);
       }
     });
+  }
+
+  toggleFavorite() {
+    return this.isFavorite = !this.isFavorite;
+  }
+
+  chooseShareWay(){
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Share with?');
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Facebook',
+      value: 'value1',
+      checked: true
+    });
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Tweet',
+      value: 'value2'
+    });
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Whatsapp',
+      value: 'value3'
+    });
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Okay',
+      handler: data => {
+        console.log('Checkbox data:', data);
+        this.testCheckboxOpen = false;
+        this.testCheckboxResult = data;
+      }
+    });
+    alert.present();
+    
   }
 
 }

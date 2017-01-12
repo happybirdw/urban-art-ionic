@@ -15,6 +15,8 @@ export class HeaderContentComponent {
   @Input() title: string;
   @Input() backEnabled: boolean;
   showBack: boolean;
+  showNext: boolean = false;
+  showMore: boolean = false;
 
   @Output() onBack: EventEmitter<any> = new EventEmitter();
 
@@ -29,7 +31,10 @@ export class HeaderContentComponent {
     this.onBack.emit({})
   }
 
-  showMore() {
+  onClickMore() {
     
+  }
+  onClickNext() {
+    this.onBack.emit({})
   }
 }

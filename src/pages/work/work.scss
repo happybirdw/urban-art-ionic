@@ -14,6 +14,13 @@ page-work {
     color: white;
   }
 
+  ion-slide{
+     width:100%;
+  }
+  .slide-zoom{
+      width: 100%;
+      height: 100%;
+  }
   .img-item{
       height: 250px;
       width: auto;
@@ -21,9 +28,8 @@ page-work {
       overflow: hidden;
   }
   img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
   }
 
@@ -39,11 +45,14 @@ page-work {
 
   .card-content-md {
     position: absolute;
-    margin-top: -131px;
+    margin-top: -250px;
+    padding-top: 0;
+    padding-bottom: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
     color: white;
-    text-align: center;
+    text-align: left;
+    z-index: 1;
   }
   .card-title-md{
     font-size: 1.9em;
@@ -51,40 +60,10 @@ page-work {
     color: white;
   }
   .card-md p{
-    font-size: 1.2em;
     overflow: hidden;
     color: white;
   }
 
 
-/*
-    #imgContainer {
-      height: 300px;
-      width: 100%;
-    }
-
-
-    .bar-button-default-md,
-    .bar-button-clear-md-default,
-    .bar-button-md-default {
-      color: white;
-      background-color: transparent;
-    }
-    ion-content .scroll-content {
-      margin-top: 0px !important;
-    }
-
-    .card-content-md {
-      background-color: color($colors, secondary);
-    }
-
-    .card-title-md {
-      color: white;
-    }
-    .card-md p {
-      color: white;
-    }
-
-*/
 
 }

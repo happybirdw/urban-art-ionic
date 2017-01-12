@@ -6,7 +6,7 @@ header-content {
     .bar-button-default-md,
     .bar-button-clear-md-default,
     .bar-button-md-default {
-      color: white;
+      color: color($colors, secondary);
       background-color: transparent;
     }
 }

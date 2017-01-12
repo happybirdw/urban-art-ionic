@@ -9,7 +9,7 @@ import { Auth } from '../../providers/auth';
 })
 export class HomePage {
   slidesOptions:Object={
-    pager:true,
+    pager: false,
   };
 
   constructor(public navCtrl: NavController, private auth: Auth) {
