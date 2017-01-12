@@ -51,10 +51,21 @@ export class Map1 {
      this.map.setOptions({styles: this.styles});
       
       // Current position marker with infoWindow
+      var image = {
+        // url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
+        url: '../../assets/icon/Me.png',
+        // This marker is 20 pixels wide by 20 pixels high.
+        size: new google.maps.Size(40, 40),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(20, 20)
+      };
+
       var marker = new google.maps.Marker({
               position: { lat: this.lat, lng: this.long },
               map: this.map,
-              icon: '../../assets/icon/Me.png',
+              icon: image,
               title: 'Where I am'
             });
       var infowindow = new google.maps.InfoWindow({
@@ -82,24 +93,23 @@ export class Map1 {
       coords: [1, 1, 20, 20],
       type: 'rect'
     };
-/*
+
       var image = {
-        
         // url: this.worksService.getImagesPath() + work._id + '-' + work.photos[0] + '.jpeg',
         url: '../../assets/icon/work.png',
         // This marker is 20 pixels wide by 20 pixels high.
-        size: new google.maps.Size(20, 20),
+        size: new google.maps.Size(35, 35),
         // The origin for this image is (0, 0).
         origin: new google.maps.Point(0, 0),
         // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 20)
+        anchor: new google.maps.Point(17, 17)
       };
-*/
+
 
       var marker = new google.maps.Marker({
         position: {lat: work.pos[1], lng: work.pos[0]},
         map: map,
-        icon: '../../assets/icon/work.png',
+        icon: image,
         shape: shape,
         title: work.title,
       });

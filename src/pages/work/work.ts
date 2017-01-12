@@ -81,6 +81,10 @@ export class WorkPage { //implements OnInit {
       travelMode: google.maps.TravelMode.WALKING
     }, function(response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
+        // Display the duration:
+        document.getElementById('duration').innerHTML = 
+          response.routes[0].legs[0].duration.text;
+
         directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);

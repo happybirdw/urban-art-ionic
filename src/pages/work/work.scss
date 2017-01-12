@@ -15,7 +15,7 @@ page-work {
   }
 
   .img-item{
-      height: 300px;
+      height: 250px;
       width: auto;
       position: relative;
       overflow: hidden;
@@ -32,8 +32,33 @@ page-work {
     color: white;
   }
 
+  .no-margin{
+      margin: 0;
+      width: 100%;
+  }  
 
-  #imgContainer {
+  .card-content-md {
+    position: absolute;
+    margin-top: -131px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+  }
+  .card-title-md{
+    font-size: 1.9em;
+    overflow: hidden;
+    color: white;
+  }
+  .card-md p{
+    font-size: 1.2em;
+    overflow: hidden;
+    color: white;
+  }
+
+
+/*
+    #imgContainer {
       height: 300px;
       width: 100%;
     }
@@ -60,9 +85,6 @@ page-work {
       color: white;
     }
 
-    .no-margin{
-        margin: 0;
-        width: 100%;
-    }
+*/
 
 }

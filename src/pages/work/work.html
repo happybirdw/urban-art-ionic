@@ -17,11 +17,17 @@
 
 
 <ion-content>
-<!--
-<div id="imgContainer" [style.background-image]="'url(' + imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg' + ')'"></div>
--->
-  
-  <ion-fab  bottom right>
+<!--  <ion-fab top right edge>
+    <button ion-fab mini><ion-icon name="md-share"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  -->
+  <ion-fab  middle right>
     <button ion-fab color="primary" (click)="go()"><ion-icon name="trending-up"></ion-icon></button>
   </ion-fab>
     
@@ -29,12 +35,16 @@
     <div class="img-item">
       <img src="{{imagesPath + selectedWork._id + '-' + selectedWork.photos[0] + '.jpeg'}}" />
     </div>
+
     <ion-card-content>
       <ion-card-title>
         {{selectedWork.title}}
       </ion-card-title>
       <p>
         {{selectedWork.description}}
+      </p>
+      <p>
+        {{selectedWork.artists[0]}}
       </p>
     </ion-card-content>
     
@@ -45,22 +55,21 @@
           Favorite
         </button>
       </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="secondary" icon-left (click)="go()">
-          <ion-icon name='trending-up'></ion-icon>
-          Go
+      <ion-col text-left>
+        <button ion-button clear small color="secondary" icon-left>
+          <ion-icon name='walk'></ion-icon>
+          <div id="duration"></div> 
         </button>
       </ion-col>
-      <ion-col text-right>
+      <ion-col text-left>
         <button ion-button clear small color="secondary" icon-left>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
+          
         </button>
       </ion-col>
 
     </ion-row>
 
-
+<!--
   <ion-list>
 
     <ion-item>
@@ -78,7 +87,7 @@
   
   </ion-list>
 
-    
+ -->   
     
   </ion-card>
 
