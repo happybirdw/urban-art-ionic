@@ -57,25 +57,25 @@
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small icon-left (click)="toggleFavorite()">
-          <ion-icon name='heart-outline' color="secondary" *ngIf="!isFavorite"></ion-icon>
+          <ion-icon name='heart-outline' *ngIf="!isFavorite"></ion-icon>
           <ion-icon name='heart' color="primary" *ngIf="isFavorite"></ion-icon>
         </button>
-        <button ion-button clear small color="secondary" (click)="chooseShareWay()" icon-left>
+        <button ion-button clear small (click)="chooseShareWay()" icon-left>
           <ion-icon name="md-share"></ion-icon>
-          share
+          <div class="white">share</div>
         </button>      
       </ion-col>
 
       <ion-col text-left>
-        <button ion-button clear small color="secondary" icon-left>
+        <button ion-button clear small icon-left>
           <ion-icon name='walk'></ion-icon>
-          <div id="duration"></div> 
+          <div id="duration" class="white"></div> 
         </button>
       </ion-col>
 
     </ion-row>
 
-<!--
+
   <ion-list>
 
     <ion-item>
@@ -93,7 +93,7 @@
   
   </ion-list>
 
- -->   
+    
     
   </ion-card>
 

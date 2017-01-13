@@ -38,6 +38,16 @@ page-work {
     color: white;
   }
 
+  ion-row{
+    background: color($colors, secondary);
+  }
+  ion-row ion-icon{
+    color: white;
+  }
+  .white {
+    color: white;
+  }
+
   .no-margin{
       margin: 0;
       width: 100%;

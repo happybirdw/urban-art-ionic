@@ -56,10 +56,14 @@
       </ion-select>
     </ion-item>
 
-    <button ion-button icon-left color="dark" round outline right (click)="getPicture()">
-      <ion-icon name='camera' is-active="false"></ion-icon>
-      <span>Take picture</span>
-    </button>
+
+
+    <div padding>
+      <button ion-button icon-left color="dark" block round outline center bottom (click)="save()">
+        <ion-icon name='cloud-upload' is-active="false"></ion-icon>
+        <span>Save work</span>
+      </button>
+    </div>
 
     <div class="item-images no-margin" *ngFor="let image of base64Image" >
       <div class="item-image">
@@ -68,11 +72,11 @@
     </div>
 
     <ion-fab right bottom>
-      <button ion-fab color="primary" (click)="save()">
-        <ion-icon name="paper-plane"></ion-icon>
+      <button ion-fab color="primary" (click)="getPicture()">
+        <ion-icon name="camera"></ion-icon>
       </button>
     </ion-fab>
 
-
   </ion-list>
+ 
 </ion-content>

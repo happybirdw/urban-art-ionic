@@ -106,7 +106,7 @@ export class Map1 {
       };
 
 
-      var marker = new google.maps.Marker({
+      new google.maps.Marker({
         position: {lat: work.pos[1], lng: work.pos[0]},
         map: map,
         icon: image,
